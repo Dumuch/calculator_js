@@ -1,11 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Calculator</title>
-  </head>
-  <body>
-    
 
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container pt-5 pl-5">
+    <form class="" action="index.html" method="post">
+
+      <p>Первое число автоматически складывается со вторым</p>
+      <div class="row">
+        <div class="col">
+          <label for="" class="mr-5">
+            Первое число:
+            <input type="number" class="form-control mb-5" id="firstNumber">
+          </label>
+          <label for="">Второе число:
+            <input type="number" class="form-control" id="secondNumber">
+          </label>
+
+          <div class="row">
+            <div class="col">
+              <label for="">Результат:
+                <span class="input-group-text" id="result"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <input type="checkbox" class="custom-checkbox mr-3" id="customCheckbox" name="customCheckbox" value="" >
+              <label for="customCheckbox">Умножить на:
+              </label>
+
+            </div>
+
+          </div>
+          <label for="">2
+            <input type="radio" class="custom-radio mr-3" id="customRadio1" name="customRadio" value="2" checked>
+          </label>
+          <label for="">5
+            <input type="radio" class="custom-radio mr-3" id="customRadio2" name="customRadio" value="5">
+          </label>
+          <label for="">3
+            <input type="radio" class="custom-radio" id="customRadio3" name="customRadio" value="3">
+          </label>
+
+        </div>
+
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <p class="mb-2">Прибавить: </p>
+            </div>
+          </div>
+
+          <label for="">20
+            <input type="checkbox" class="custom-checkbox mr-3" id="customCheckbox1" name="customCheckbox1" value="20">
+          </label>
+          <label for="">50
+            <input type="checkbox" class="custom-checkbox mr-3" id="customCheckbox2" name="customCheckbox1" value="50">
+          </label>
+          <label for="">30
+            <input type="checkbox" class="custom-checkbox" id="customCheckbox3" name="customCheckbox1" value="30">
+          </label>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="col">
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
 </html>

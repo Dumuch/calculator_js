@@ -4,6 +4,5 @@
 # Ada Library Information
 *.ali
 
-css/
-js/
-jquery-3.5.1.min.js
+bootstrap/
+jquery/
