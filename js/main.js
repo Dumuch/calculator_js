@@ -56,10 +56,14 @@ const foldNumberValue = () => {
 
 
 const displayTotal = () => {
-  let total = inputFirstNumberValue() + inputSecondNumberValue();
-  total = total * multiplyNumberValue();
-  total = total + foldNumberValue();
-  result.innerText = total;
+  if (secondNumber.value === `` || firstNumber.value === ``) {
+    result.innerText = ``;
+  } else {
+    let total = inputFirstNumberValue() + inputSecondNumberValue();
+    total = total * multiplyNumberValue();
+    total = total + foldNumberValue();
+    result.innerText = total;
+  }
 };
 
 
@@ -75,8 +79,7 @@ const activeRadio = () => {
     customRadio2.disabled = true;
     customRadio3.disabled = true;
   }
-}
-
+};
 
 
 firstNumber.addEventListener('input', displayTotal);
@@ -90,4 +93,3 @@ for (var i = 0; i < radioChecked.length; i++) {
 for (var i = 0; i < сheckboxChecked.length; i++) {
   сheckboxChecked[i].addEventListener('input', displayTotal);
 };
-// activeRadio();
