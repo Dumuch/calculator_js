@@ -12,57 +12,82 @@ const addition1 = document.querySelector('#customCheckbox1');
 const addition2 = document.querySelector('#customCheckbox2');
 const addition3 = document.querySelector('#customCheckbox3');
 
-const сheckboxChecked = document.getElementsByName('customCheckbox');
+const сheckboxChecked = document.getElementsByName('customCheckbox1');
+
+
 
 const result = document.querySelector('#result');
 
-let total = 0;
 
-const fold = (first=0, second=0, multiply=1) => {
-    total = (first + second) * multiply;
-    result.innerText = total;
-}
-
-const inputNumberValueHandler = () => {
+const inputFirstNumberValue = () => {
   const first = Number.parseInt(firstNumber.value);
+  return first
+};
+
+const inputSecondNumberValue = () => {
   const second = Number.parseInt(secondNumber.value);
-  fold(first, second);
+  return second
 };
 
 
-const defineRadioChecked = () => {
-  for (let i = 0; i < radioChecked.length; i++) {
-    if (radioChecked[i].checked == true) {
-      fold(radioChecked[i].value);
+
+const multiplyNumberValue = () => {
+  if (multiplication.checked === true) {
+    for (let i = 0; i < radioChecked.length; i++) {
+      if (radioChecked[i].checked === true) {
+        const multiply = Number.parseInt(radioChecked[i].value);
+        return multiply;
+      }
     }
+  } else {
+    return 1
   }
-}
+};
+
+const foldNumberValue = () => {
+  let fold = 0;
+  сheckboxChecked.forEach((item, i) => {
+    if (item.checked === true) {
+      fold = fold + Number.parseInt(сheckboxChecked[i].value);
+    }
+  });
+  return fold;
+};
+
+
+const displayTotal = () => {
+  let total = inputFirstNumberValue() + inputSecondNumberValue();
+  total = total * multiplyNumberValue();
+  total = total + foldNumberValue();
+  result.innerText = total;
+};
+
 
 const activeRadio = () => {
   if (multiplication.checked === true) {
-    defineRadioChecked();
+    displayTotal();
     customRadio1.disabled = false;
     customRadio2.disabled = false;
     customRadio3.disabled = false;
   } else {
-    fold();
+    displayTotal();
     customRadio1.disabled = true;
     customRadio2.disabled = true;
     customRadio3.disabled = true;
   }
 }
 
-firstNumber.addEventListener('input', inputNumberValueHandler);
-secondNumber.addEventListener('input', inputNumberValueHandler);
 
-for (let i = 0; i < radioChecked.length; i++) {
-  radioChecked[i].addEventListener('click', defineRadioChecked);
+
+firstNumber.addEventListener('input', displayTotal);
+secondNumber.addEventListener('input', displayTotal);
+multiplication.addEventListener('input', activeRadio);
+
+for (var i = 0; i < radioChecked.length; i++) {
+  radioChecked[i].addEventListener('input', displayTotal);
 };
 
-activeRadio();
-
-multiplication.addEventListener('click', activeRadio);
-
-for (let i = 0; i < сheckboxChecked.length; i++) {
-  сheckboxChecked[i].addEventListener('click', () =>{});
+for (var i = 0; i < сheckboxChecked.length; i++) {
+  сheckboxChecked[i].addEventListener('input', displayTotal);
 };
+// activeRadio();
