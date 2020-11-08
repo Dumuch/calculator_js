@@ -2,6 +2,7 @@ const firstNumber = document.querySelector('#firstNumber');
 const secondNumber = document.querySelector('#secondNumber');
 
 const multiplication = document.querySelector('#customCheckbox');
+
 const customRadio1 = document.querySelector('#customRadio1');
 const customRadio2 = document.querySelector('#customRadio2');
 const customRadio3 = document.querySelector('#customRadio3');
@@ -13,8 +14,6 @@ const addition2 = document.querySelector('#customCheckbox2');
 const addition3 = document.querySelector('#customCheckbox3');
 
 const сheckboxChecked = document.getElementsByName('customCheckbox1');
-
-
 
 const result = document.querySelector('#result');
 
